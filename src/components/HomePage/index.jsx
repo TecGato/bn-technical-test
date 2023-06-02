@@ -1,10 +1,20 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import useGlobalStore from '../../store/globalStore';
+import useStore from '@/store/useStore';
+import { useEffect } from 'react';
 
-export default function HomePage({ feed }) {
+export default function HomePage() {
+  const podcast = useStore(useGlobalStore, (state) => state.podcasts);
+  const setPodcast = useGlobalStore((state) => state.setPodcasts);
+
+  useEffect(() => {
+    setPodcast();
+  }, []);
+
   return (
     <div className="grid grid-cols-4 justify-items-center ">
-      {feed.feed.entry.map((podcast) => (
+      {podcast?.map((podcast) => (
         <Link
           key={podcast.id.attributes['im:id']}
           href={`/podcast/${podcast.id.attributes['im:id']}`}
