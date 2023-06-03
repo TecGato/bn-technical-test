@@ -9,17 +9,12 @@ import PodcastDetail from '@/components/PodcastDetail';
 export default function podcastID() {
   const podcast = useStore(useGlobalStore, (state) => state.podcast);
   const setPodcast = useGlobalStore((state) => state.setPodcast);
-  const resetPodcast = useGlobalStore((state) => state.resetPodcast);
   const loading = useStore(useGlobalStore, (state) => state.loading);
   const router = useRouter();
 
   useEffect(() => {
     setPodcast(router.query.id);
-    return () => {
-      resetPodcast();
-    };
   }, []);
-  console.log(podcast);
 
   return (
     <Layout>

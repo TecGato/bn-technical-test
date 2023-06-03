@@ -6,7 +6,7 @@ const useGlobalStore = create(
     (set, get) => ({
       podcasts: [],
       podcast: [],
-      loading: true,
+      loading: false,
 
       setPodcasts: async () => {
         if (get().podcasts.length > 0) return;

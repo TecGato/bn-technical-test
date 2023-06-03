@@ -7,9 +7,11 @@ import { useEffect } from 'react';
 export default function HomePage() {
   const podcast = useStore(useGlobalStore, (state) => state.podcasts);
   const setPodcast = useGlobalStore((state) => state.setPodcasts);
+  const resetPodcast = useGlobalStore((state) => state.resetPodcast);
 
   useEffect(() => {
     setPodcast();
+    resetPodcast();
   }, []);
 
   return (
