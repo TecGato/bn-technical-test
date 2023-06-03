@@ -46,10 +46,14 @@ const useGlobalStore = create(
           set({ podcasts: get().allPodcasts });
           return;
         } else {
-          const podcasts = get().allPodcasts.filter((podcast) =>
-            podcast['im:name'].label
-              .toLowerCase()
-              .includes(search.toLowerCase())
+          const podcasts = get().allPodcasts.filter(
+            (podcast) =>
+              podcast['im:name'].label
+                .toLowerCase()
+                .includes(search.toLowerCase()) ||
+              podcast['im:artist'].label
+                .toLowerCase()
+                .includes(search.toLowerCase())
           );
           set({ podcasts });
         }

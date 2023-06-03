@@ -1,8 +1,8 @@
+import { useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import useGlobalStore from '../../store/globalStore';
 import useStore from '@/store/useStore';
-import { useEffect } from 'react';
 import SearchBar from '../SearchBar/Index';
 
 export default function HomePage() {
@@ -16,6 +16,8 @@ export default function HomePage() {
     resetPodcast();
     return () => resetFilter();
   }, []);
+
+  console.log(podcast);
 
   return (
     <div className="grid ">
