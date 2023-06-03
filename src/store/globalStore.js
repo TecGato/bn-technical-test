@@ -4,6 +4,7 @@ import { persist } from 'zustand/middleware';
 const useGlobalStore = create(
   persist(
     (set, get) => ({
+      allPodcasts: [],
       podcasts: [],
       podcast: [],
       loading: false,
@@ -16,7 +17,7 @@ const useGlobalStore = create(
             'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json'
           );
           const { feed } = await response.json();
-          set({ podcasts: feed.entry });
+          set({ podcasts: feed.entry, allPodcasts: feed.entry });
           get().setLoading(false);
         } catch (error) {
           console.error(error);
@@ -39,6 +40,22 @@ const useGlobalStore = create(
           console.error(error);
         }
       },
+
+      setSearchPodcast: async (search) => {
+        if (search === '') {
+          set({ podcasts: get().allPodcasts });
+          return;
+        } else {
+          const podcasts = get().allPodcasts.filter((podcast) =>
+            podcast['im:name'].label
+              .toLowerCase()
+              .includes(search.toLowerCase())
+          );
+          set({ podcasts });
+        }
+      },
+
+      resetFilter: () => set({ podcasts: get().allPodcasts }),
 
       resetPodcast: () => set({ podcast: [] }),
 

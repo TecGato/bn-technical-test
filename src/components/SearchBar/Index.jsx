@@ -1,13 +1,12 @@
-import React, { useState } from 'react';
 import useGlobalStore from '@/store/globalStore';
 import useStore from '@/store/useStore';
 
 export default function SearchBar() {
-  const [search, setSearch] = useState('');
+  const setSearchPodcast = useGlobalStore((state) => state.setSearchPodcast);
 
   const handleSearch = (event) => {
     const { value } = event.target;
-    setSearch(value.tolowerCase());
+    setSearchPodcast(value);
   };
 
   return (
