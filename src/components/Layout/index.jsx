@@ -8,7 +8,7 @@ export default function Layout({ children }) {
     <>
       <div className="flex justify-between items-center">
         <Link href={`/`}>
-          <h1 className="text-2xl text-left text">Podcaster</h1>
+          <h1 className="text-2xl text-left text ml-3">Podcaster</h1>
         </Link>
         {loading && <h1 className="">Loading...</h1>}
       </div>

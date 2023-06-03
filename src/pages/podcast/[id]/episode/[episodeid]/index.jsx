@@ -22,6 +22,7 @@ export default function EpisodeId() {
               name={podcast[0]?.collectionName}
               description={podcast[0]?.description}
               image={podcast[0]?.artworkUrl100}
+              id={podcast[0]?.collectionId}
             />
             <EpisodeDetail
               name={episode[0].trackName}

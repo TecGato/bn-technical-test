@@ -9,8 +9,10 @@ export default function PodcastDetail({ episodes, episodesList }) {
     <>
       {!loading ? (
         <>
-          <div className="border">
-            <h3>Episodes: {episodes}</h3>
+          <div className="m-2 p-2">
+            <div className="border">
+              <h3 className="text-left">Episodes: {episodes}</h3>
+            </div>
             <div className="flex flex-col">
               <div className="flex justify-evenly">
                 <h3 className="text-left">Title</h3>

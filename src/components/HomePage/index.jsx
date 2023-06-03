@@ -17,8 +17,6 @@ export default function HomePage() {
     return () => resetFilter();
   }, []);
 
-  console.log(podcast);
-
   return (
     <div className="grid ">
       <div className="m-3 text-lg justify-self-end border-2 border-l-gray-400 rounded-lg ">

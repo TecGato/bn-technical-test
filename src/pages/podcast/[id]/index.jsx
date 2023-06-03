@@ -21,17 +21,22 @@ export default function podcastID() {
       {!podcast ? (
         <h1>Loading...</h1>
       ) : (
-        <div>
-          <LeftBar
-            artist={podcast[0]?.artistName}
-            name={podcast[0]?.collectionName}
-            description={podcast[0]?.description}
-            image={podcast[0]?.artworkUrl100}
-          />
-          <PodcastDetail
-            episodes={podcast[0]?.trackCount}
-            episodesList={podcast?.map((podcast) => podcast)}
-          />
+        <div className="grid grid-cols-4">
+          <div className="col-span-1">
+            <LeftBar
+              artist={podcast[0]?.artistName}
+              name={podcast[0]?.collectionName}
+              description={podcast[0]?.description}
+              image={podcast[0]?.artworkUrl100}
+            />
+          </div>
+          <div className="col-span-3">
+            <PodcastDetail
+              episodes={podcast[0]?.trackCount}
+              episodesList={podcast?.map((podcast) => podcast)}
+              className="col-span-3"
+            />
+          </div>
         </div>
       )}
     </Layout>
