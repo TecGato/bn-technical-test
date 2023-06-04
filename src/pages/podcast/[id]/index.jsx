@@ -6,7 +6,7 @@ import useStore from '@/store/useStore';
 import LeftBar from '@/components/LeftBar';
 import PodcastDetail from '@/components/PodcastDetail';
 
-export default function podcastID() {
+export default function PodcastID() {
   const podcast = useStore(useGlobalStore, (state) => state.podcast);
   const setPodcast = useGlobalStore((state) => state.setPodcast);
   const description = useStore(useGlobalStore, (state) => state.description);

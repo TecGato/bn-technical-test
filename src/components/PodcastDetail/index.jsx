@@ -21,6 +21,7 @@ export default function PodcastDetail({ episodes, episodesList }) {
               </div>
               {episodesList?.map((episode, index) => (
                 <div
+                  key={episode.trackId}
                   className={`grid grid-cols-5 m-2 border-2 ${
                     index % 2 === 0 ? 'bg-slate-100' : null
                   } `}
