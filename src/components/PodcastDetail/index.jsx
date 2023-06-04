@@ -11,7 +11,9 @@ export default function PodcastDetail({ episodes, episodesList }) {
         <>
           <div className="m-2 p-2 ">
             <div className="border shadow-md shadow-slate-400">
-              <h3 className="text-left">Episodes: {episodes}</h3>
+              <h3 className="text-left font-bold m-2 text-lg">
+                Episodes: {episodes}
+              </h3>
             </div>
             <div className="flex flex-col shadow-lg shadow-slate-400">
               <div className="grid grid-cols-5 mt-4 ml-4">
