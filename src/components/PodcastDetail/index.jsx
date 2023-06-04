@@ -33,7 +33,7 @@ export default function PodcastDetail({ episodes, episodesList }) {
                   <Link
                     href={`/podcast/${episode.collectionId}/episode/${episode.trackId}`}
                     key={episode.trackId}
-                    className="text-left col-span-3 "
+                    className="text-left col-span-3 hover:text-blue-500"
                   >
                     <h3>{episode.trackName}</h3>
                   </Link>
