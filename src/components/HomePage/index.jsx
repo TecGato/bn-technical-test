@@ -28,7 +28,7 @@ export default function HomePage() {
             key={podcast.id.attributes['im:id']}
             href={`/podcast/${podcast.id.attributes['im:id']}`}
           >
-            <div className="grid grid-cols-1 justify-items-center mb-6 border-slate-400 rounded-l shadow-lg shadow-slate-400 h-56 w-72">
+            <div className="grid grid-cols-1 justify-items-center mb-6 border-slate-400 rounded-l shadow-lg shadow-slate-400 h-56 w-72 hover:scale-105 transition ease-in-out">
               <Image
                 className="rounded-full"
                 src={podcast['im:image'][2].label}

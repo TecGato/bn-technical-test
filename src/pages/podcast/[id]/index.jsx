@@ -13,6 +13,9 @@ export default function PodcastID() {
   const router = useRouter();
 
   useEffect(() => {
+    if (!router.query.id) {
+      router.push('/');
+    }
     setPodcast(router.query.id);
   }, []);
 

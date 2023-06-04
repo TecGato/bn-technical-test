@@ -1,9 +1,10 @@
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import useGlobalStore from '@/store/globalStore';
 import useStore from '@/store/useStore';
 import LeftBar from '@/components/LeftBar';
 import Layout from '@/components/Layout';
 import EpisodeDetail from '@/components/EpisodeDetail/Index';
-import { useRouter } from 'next/router';
 
 export default function EpisodeId() {
   const router = useRouter();
@@ -12,6 +13,10 @@ export default function EpisodeId() {
   const episode = podcast?.filter(
     (episode) => episode.trackId == router.query.episodeid
   );
+
+  useEffect(() => {
+    if (!router.query.id) router.push('/');
+  }, []);
 
   return (
     <Layout>
@@ -28,9 +33,9 @@ export default function EpisodeId() {
           </div>
           <div className="col-span-3">
             <EpisodeDetail
-              name={episode[0].trackName}
-              description={episode[0].description}
-              view={episode[0].previewUrl}
+              name={episode[0]?.trackName}
+              description={episode[0]?.description}
+              view={episode[0]?.previewUrl}
             />
           </div>
         </div>
