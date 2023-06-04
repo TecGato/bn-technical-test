@@ -9,7 +9,7 @@ import PodcastDetail from '@/components/PodcastDetail';
 export default function podcastID() {
   const podcast = useStore(useGlobalStore, (state) => state.podcast);
   const setPodcast = useGlobalStore((state) => state.setPodcast);
-  const loading = useStore(useGlobalStore, (state) => state.loading);
+  const description = useStore(useGlobalStore, (state) => state.description);
   const router = useRouter();
 
   useEffect(() => {
@@ -26,8 +26,8 @@ export default function podcastID() {
             <LeftBar
               artist={podcast[0]?.artistName}
               name={podcast[0]?.collectionName}
-              description={podcast[0]?.description}
-              image={podcast[0]?.artworkUrl100}
+              description={description}
+              image={podcast[0]?.artworkUrl600}
             />
           </div>
           <div className="col-span-3">

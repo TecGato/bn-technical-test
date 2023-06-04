@@ -19,7 +19,7 @@ export default function HomePage() {
 
   return (
     <div className="grid ">
-      <div className="m-3 text-lg justify-self-end border-2 border-l-gray-400 rounded-lg ">
+      <div className="m-3 text-lg justify-self-end ">
         <SearchBar />
       </div>
       <div className="grid grid-cols-4 justify-items-center ">
@@ -28,16 +28,18 @@ export default function HomePage() {
             key={podcast.id.attributes['im:id']}
             href={`/podcast/${podcast.id.attributes['im:id']}`}
           >
-            <div className="mb-6 bg-slate-300 border-slate-400 rounded-l flex flex-col items-center">
+            <div className="grid grid-cols-1 justify-items-center mb-6 border-slate-400 rounded-l shadow-lg shadow-slate-400 h-56 w-72">
               <Image
                 className="rounded-full"
-                src={podcast['im:image'][1].label}
+                src={podcast['im:image'][2].label}
                 alt={podcast['im:name'].label}
-                width={podcast['im:image'][1].attributes.height}
-                height={podcast['im:image'][1].attributes.height}
+                width={100}
+                height={100}
               />
-              <h3>{podcast['im:name'].label}</h3>
-              <p>{podcast['im:artist'].label}</p>
+              <h3 className="text-center text-l">{podcast['im:name'].label}</h3>
+              <p className="text-center text-gray-400 text-sm">
+                {podcast['im:artist'].label}
+              </p>
             </div>
           </Link>
         ))}

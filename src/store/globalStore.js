@@ -9,9 +9,9 @@ const useGlobalStore = create(
       podcast: [],
       date: '',
       loading: false,
+      description: '',
 
       fetchPodcasts: async () => {
-        console.log('fetching');
         const response = await fetch(
           'https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json'
         );
@@ -68,6 +68,7 @@ const useGlobalStore = create(
           if (!id) throw new Error('No id');
           if (localStorage.getItem(id) === null) {
             get().fetchPodcast(id);
+            get().setDescription(id);
             return;
           } else {
             const data = JSON.parse(localStorage.getItem(id));
@@ -77,10 +78,12 @@ const useGlobalStore = create(
             const diffDays = diffTime / (1000 * 60 * 60 * 24);
             if (diffDays < 1) {
               set({ podcast: data.results });
+              get().setDescription(id);
               get().setLoading(false);
               return;
             } else {
               get().fetchPodcast(id);
+              get().setDescription(id);
               return;
             }
           }
@@ -107,9 +110,16 @@ const useGlobalStore = create(
         }
       },
 
+      setDescription: (id) => {
+        const filtered = get().podcasts.filter(
+          (podcast) => podcast.id.attributes['im:id'] === id
+        );
+        set({ description: filtered[0].summary.label });
+      },
+
       resetFilter: () => set({ podcasts: get().allPodcasts }),
 
-      resetPodcast: () => set({ podcast: [] }),
+      resetPodcast: () => set({ podcast: [], description: '' }),
 
       setLoading: (value) => set({ loading: value }),
     }),
