@@ -12,20 +12,20 @@ export default function LeftBar({ artist, name, description, image, id }) {
           {id ? (
             <Link href={`/podcast/${id}`}>
               <Image src={image} alt={name} width={150} height={150} />
-              <h3>{name}</h3>
-              <p>{artist}</p>
+              <h3 className="font-bold text-xl">{name}</h3>
+              <p className="italic">{artist}</p>
             </Link>
           ) : (
             <>
               <Image src={image} alt={name} width={150} height={150} />
-              <h3>{name}</h3>
-              <p>{artist}</p>
+              <h3 className="font-bold text-xl">{name}</h3>
+              <p className="italic">{artist}</p>
             </>
           )}
           <hr />
           <div className="justify-self-start m-2">
-            <h3>Description:</h3>
-            <p>{description}</p>
+            <h3 className="font-bold text-">Description:</h3>
+            <p className="italic">{description}</p>
           </div>
         </div>
       ) : null}

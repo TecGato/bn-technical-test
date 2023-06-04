@@ -17,9 +17,9 @@ export default function PodcastDetail({ episodes, episodesList }) {
             </div>
             <div className="flex flex-col shadow-lg shadow-slate-400">
               <div className="grid grid-cols-5 mt-4 ml-4">
-                <h3 className="col-span-3">Title</h3>
-                <h3>Date</h3>
-                <h3>Duration (Min)</h3>
+                <h3 className="col-span-3 font-bold">Title</h3>
+                <h3 className="font-bold">Date</h3>
+                <h3 className="font-bold">Duration (Min)</h3>
               </div>
               {episodesList?.map((episode, index) => (
                 <div
