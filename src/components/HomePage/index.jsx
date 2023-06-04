@@ -36,8 +36,10 @@ export default function HomePage() {
                 width={100}
                 height={100}
               />
-              <h3 className="text-center text-l">{podcast['im:name'].label}</h3>
-              <p className="text-center text-gray-400 text-sm">
+              <h3 className="text-center text-l break-all">
+                {podcast['im:name'].label}
+              </h3>
+              <p className="text-center text-gray-400 text-sm break-all">
                 {podcast['im:artist'].label}
               </p>
             </div>

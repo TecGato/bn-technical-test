@@ -25,7 +25,7 @@ export default function LeftBar({ artist, name, description, image, id }) {
           <hr />
           <div className="justify-self-start m-2">
             <h3 className="font-bold text-">Description:</h3>
-            <p className="italic">{description}</p>
+            <p className="italic break-all">{description}</p>
           </div>
         </div>
       ) : null}

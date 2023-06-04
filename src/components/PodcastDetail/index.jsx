@@ -4,7 +4,9 @@ import Link from 'next/link';
 
 export default function PodcastDetail({ episodes, episodesList }) {
   const loading = useStore(useGlobalStore, (state) => state.loading);
-  episodesList.shift();
+  if (episodesList[0]?.collectionId === episodesList[0]?.trackId)
+    episodesList.shift();
+
   return (
     <>
       {!loading ? (
